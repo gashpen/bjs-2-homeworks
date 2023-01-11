@@ -6,6 +6,20 @@ function compareArrays(arr1, arr2) {
     }
   }
 
-function getUsersNamesInAgeRange(users, gender) {
-  
-}
+  function getUsersNamesInAgeRange(users, gender) {
+    let totalGender = 0;
+    if (gender !== 'мужской' && gender !== 'женский') {
+      return 0
+    };
+    let result = users.filter(peoples => peoples.gender.includes(gender)).reduce((acc, averageAge) => {
+      return totalGender++, acc + averageAge.age;
+    }, 0);
+    if (totalGender === 0) {
+      return 0
+    }
+    return result / totalGender
+  };
+  console.log(getUsersNamesInAgeRange(people, "мужской")); // 32
+  console.log(getUsersNamesInAgeRange(people, "женский")); // 27.4
+  console.log(getUsersNamesInAgeRange([], "женский")); // 0
+  console.log(getUsersNamesInAgeRange(people, "инопланетянин"));
