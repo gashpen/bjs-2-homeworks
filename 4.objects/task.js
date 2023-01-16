@@ -19,7 +19,7 @@ Student.prototype.getAverage = function() {
   if("marks" in this === false || this.marks.length === 0){
     return 0
   }
-  return this.marks.reduce(((acc, currentMark, index, marks) => acc + currentMark.marks / this.marks.length), 0);
+  return this.marks.reduce(((acc, currentMark) => acc + currentMark / this.marks.length), 0);
 };
 
 Student.prototype.exclude = function(reason) {
