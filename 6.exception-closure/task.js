@@ -7,11 +7,9 @@
 
 function validateCount(arg) {
   try {
-    parseCount(arg);
+  return parseCount(arg);
   } catch (error) {
-    console.log(error);
-  } finally {
-    return parseCount(arg);
+    return error
   }
 }
 
@@ -25,11 +23,11 @@ class Triangle {
     this.c = c;
   }
   get perimeter() {
-    return a + b + c
+    return this.a + this.b + this.c
   }
   get area() {
-    let p = 0.5 * (a + b + c);
-    return Math.sqrt(p * (p - a) * (p - b) * (p - c))
+    let p = 0.5 * this.perimeter;
+    return Number(Math.sqrt(p * (p - this.a) * (p - this.b) * (p - this.c)).toFixed(3))
   }
   getTriangle(a, b, c) {
     try {
