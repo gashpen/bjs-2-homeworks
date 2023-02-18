@@ -35,12 +35,12 @@ function debounceDecoratorNew(func, delay) {
     if(isThrottled){
       return;
     }
-    func(...args);
+    const result = func(...args);
     isThrottled = true;
     setInterval(() => isThrottled = false, delay);
     setTimeout(() => func(args), delay);
     count++;
-    
+    return result;
   }
   wrapper.count = () => count;
   return wrapper
